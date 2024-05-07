@@ -78,7 +78,7 @@ def build_providers(base_url: str | None) -> dict:
                         else (
                             "AZURE_NORTH_CENTRAL_US_OPENAI_KEY"
                             if base_url and "north-central" in base_url
-                            else "AZURE_WEST_US_OPENAI_KEY"
+                            else "AZURE_EAST_US_2_OPENAI_KEY"
                         )
                     ),
                 },
