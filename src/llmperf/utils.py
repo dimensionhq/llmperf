@@ -7,14 +7,13 @@ import time
 from typing import Any, Dict, Tuple
 import dotenv
 import os
-from colorama import Fore, Style
 from transformers import LlamaTokenizerFast
 
 
 RESULTS_VERSION = "2023-08-31"
 
 
-def build_providers(base_url: str | None) -> dict:
+def build_providers(base_url: str | None, api_key: str | None) -> dict:
     return {
         "openai": {
             "environment": {"set": {"OPENAI_API_BASE": "https://api.openai.com/v1"}}
@@ -61,7 +60,7 @@ def build_providers(base_url: str | None) -> dict:
         "together_ai": {},
         "azure": {
             "environment": {
-                "set": {"OPENAI_API_BASE": base_url},
+                "set": {"OPENAI_API_BASE": base_url, "AZURE_API_KEY": api_key},
                 "map": {"OPENAI_API_KEY": "AZURE_API_KEY"},
             }
         },

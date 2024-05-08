@@ -17,7 +17,7 @@ class LiteLLMClient(LLMClient):
         # to maintain compatibility with ray.
         from litellm import completion, validate_environment
 
-        providers = build_providers(request_config.base_url)
+        providers = build_providers(request_config.base_url, request_config.api_key)
 
         if "environment" in providers[request_config.provider]:
             setup_environment_variables(

@@ -17,7 +17,7 @@ class OpenAIChatCompletionsClient(LLMClient):
     """Client for OpenAI Chat Completions API."""
 
     def llm_request(self, request_config: RequestConfig) -> Dict[str, Any]:
-        providers = build_providers(request_config.base_url)
+        providers = build_providers(request_config.base_url, request_config.api_key)
 
         if "environment" in providers[request_config.provider]:
             setup_environment_variables(

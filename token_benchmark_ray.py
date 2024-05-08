@@ -33,6 +33,7 @@ def get_token_throughput_latencies(
     stddev_input_tokens: int,
     mean_output_tokens: int,
     stddev_output_tokens: int,
+    api_key: Optional[str] = None,
     additional_sampling_params: Optional[Dict[str, Any]] = None,
     num_concurrent_requests: int = 1,
     max_num_completed_requests: int = 500,
@@ -101,6 +102,7 @@ def get_token_throughput_latencies(
             sampling_params=default_sampling_params,
             base_url=base_url,
             llm_api=llm_api,
+            api_key=api_key,
         )
         req_launcher.launch_requests(request_config)
         # Retrieving results less frequently allows for more concurrent requests
